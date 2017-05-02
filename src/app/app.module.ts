@@ -9,13 +9,15 @@ import { HomePage } from '../pages/home/home';
 import { HttpModule } from '@angular/http';
 import {DetailsPage} from '../pages/details/details';
 import {LoginPage} from '../pages/login/login';
+import {AddAccount} from '../pages/account/addAccount';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     DetailsPage,
-    LoginPage
+    LoginPage,
+    AddAccount
   ],
   imports: [
     HttpModule,
@@ -27,7 +29,8 @@ import {LoginPage} from '../pages/login/login';
     MyApp,
     HomePage,
     DetailsPage,
-    LoginPage
+    LoginPage,
+    AddAccount
   ],
   providers: [
     StatusBar,
