@@ -5,13 +5,13 @@ import {AddAccount} from '../account/addAccount';
 @Component({
     selector:'page-login',
     templateUrl:'login.html'
-  
+
 })
 export class LoginPage{
     public username;
     public password;
     constructor(private nav:NavController){
-      
+
 
     }
     goToHome(){
