@@ -3,13 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { NativeStorage } from '@ionic-native/native-storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HttpModule } from '@angular/http';
 import {DetailsPage} from '../pages/details/details';
 import {LoginPage} from '../pages/login/login';
 import {AddAccount} from '../pages/account/addAccount';
+//import {NavController} from 'ionic-angular';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import {AddAccount} from '../pages/account/addAccount';
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
+          
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

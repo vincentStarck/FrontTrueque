@@ -1,32 +1,32 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 
 @Component({
-    selector:'page-addAcount',
-    templateUrl:'addAccount.html'
+    selector: 'page-addAcount',
+    templateUrl: 'addAccount.html'
 
 })
-export class AddAccount{
+export class AddAccount {
     public username;
     public password;
     public confirmPassword;
     public email;
-    constructor(private nav:NavController){
+    constructor(private nav: NavController) {
 
 
     }
 
-    createAccount(){
+    createAccount() {
 
-      if(this.password == this.confirmPassword){
+        if (this.password == this.confirmPassword) {
 
+            alert('=')
+        }
+        else {
+            alert('!=')
 
-      }
-      else{
-
-
-      }
+        }
 
     }
 }
