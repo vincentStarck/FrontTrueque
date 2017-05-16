@@ -10,7 +10,9 @@ import { HttpModule } from '@angular/http';
 import {DetailsPage} from '../pages/details/details';
 import {LoginPage} from '../pages/login/login';
 import {AddAccount} from '../pages/account/addAccount';
-//import {NavController} from 'ionic-angular';
+import { Facebook } from '@ionic-native/facebook';
+
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import {AddAccount} from '../pages/account/addAccount';
     StatusBar,
     SplashScreen,
     NativeStorage,
+    Facebook,
           
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
