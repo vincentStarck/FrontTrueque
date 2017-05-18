@@ -7,7 +7,8 @@ import { AddAccount } from '../account/addAccount';
 
 @Component({
     selector: 'page-login',
-    templateUrl: 'login.html'
+    templateUrl: 'login.html',
+    providers:[NativeStorage,Facebook]
 
 })
 export class LoginPage {
@@ -15,7 +16,7 @@ export class LoginPage {
     public password;
     FB_APP_ID: number = 685579308308753;
     constructor(private nav: NavController,private nativeStorage: NativeStorage, private faceBook :Facebook) {
-       // Facebook.browserInit(this.FB_APP_ID, "v2.8");
+       this.faceBook.browserInit(this.FB_APP_ID, "v2.8");
 
     }
     goToHome() {
@@ -50,7 +51,7 @@ export class LoginPage {
           picture: user.picture
         })
         .then(function(){
-          nav.push(HomePage);
+         this.nav.push(HomePage);
         }, function (error) {
           console.log(error);
         })

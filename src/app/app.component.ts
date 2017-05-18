@@ -8,7 +8,8 @@ import { HomePage } from '../pages/home/home';
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers:[NativeStorage]
 })
 export class MyApp {
   @ViewChild(Nav) nav;
