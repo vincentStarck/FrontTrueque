@@ -22,12 +22,15 @@ export class MyApp {
       let env = this;
       env.nativeStorage.getItem('user')
         .then(function (data) {
+          console.log('User was looged previosly')
+
           // user is previously logged and we have his data
           // we will let him access the app
           env.nav.push(HomePage);
           splashScreen.hide();
         }, function (error) {
           //we don't have the user data so we will ask him to log in
+           console.log('User has not logget , redirect to loginPage')
           env.nav.push(LoginPage);
           splashScreen.hide();
         });
