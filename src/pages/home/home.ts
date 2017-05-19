@@ -43,12 +43,14 @@ export class HomePage {
     this.nav.push(DetailsPage, { repo: repo });
   }
   doFbLogout() {
-   
-    this.facebook.logout()
+    let env = this;
+    env.facebook.logout()
       .then(function (response) {
         //user logged out so we will remove him from the NativeStorage
-        this.nativeStorage.remove('user');
-        this.nav.push(LoginPage);
+        console.log('facebook logout success ',response)
+        env.nativeStorage.remove('user');
+        console.log('User was logout, redirect to loginPage')
+        env.nav.push(LoginPage);
       }, function (error) {
         console.log(error);
       });

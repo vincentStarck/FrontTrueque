@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { Facebook } from '@ionic-native/facebook';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AddAccount } from '../account/addAccount';
@@ -33,7 +33,7 @@ export class LoginPage {
     let env = this;
 
 
-    env.fb.login(permissions)
+    env.fb.login(['public_profile', 'user_friends', 'email'])
       .then(function (response) {
         console.log('Logged into Facebook!', response);
         let userId = response.authResponse.userID;
