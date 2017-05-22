@@ -12,16 +12,20 @@
 
 <ion-card-content>
 <ion-list inset>
+     <ion-item>
+        <ion-label floating>nombre de usurio</ion-label>
+        <ion-input [(ngModel)]='userName' type="text" value=""></ion-input>
+    </ion-item>
     <ion-item>
-        <ion-label floating>email</ion-label>
+        <ion-label floating>email*</ion-label>
         <ion-input [(ngModel)]='email' type="text" value=""></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label floating>Password</ion-label>
+        <ion-label floating>Password*</ion-label>
         <ion-input [(ngModel)]='password' type="password"></ion-input>
     </ion-item>
       <ion-item>
-        <ion-label floating>Confirmar password</ion-label>
+        <ion-label floating>Confirmar password*</ion-label>
         <ion-input [(ngModel)]='confirmPassword' type="password"></ion-input>
     </ion-item>
     <ion-item>

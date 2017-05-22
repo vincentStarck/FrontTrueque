@@ -4,6 +4,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AddAccount } from '../account/addAccount';
+import { User } from '../../model/User'
 
 @Component({
   selector: 'page-login',
@@ -39,20 +40,18 @@ export class LoginPage {
         let userId = response.authResponse.userID;
         let params = new Array();
 
-        env.fb.api("/me?fields=name,gender", params)
+        env.fb.api("/me?fields=name,gender,email", params)
           .then(function (user) {
             console.log('Getting user from Facebook success', user);
             user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
-            env.nativeStorage.setItem('user',
-              {
-                name: user.name,
-                gender: user.gender,
-                picture: user.picture
-              })
+            let userLogged = new User(user.email, user.name);
+            userLogged.picture = user.picture;
+
+            env.nativeStorage.setItem('user', userLogged)
               .then(function () {
                 env.nav.push(HomePage);
               }, function (error) {
-                console.log(error);
+                console.log('error at save user using nativeStorage: ',error);
               })
 
 

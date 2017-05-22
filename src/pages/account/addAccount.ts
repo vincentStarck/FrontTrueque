@@ -10,11 +10,11 @@ import { UsuarioService } from '../../services/usuarioService';
 
 })
 export class AddAccount {
-    public responseAddNewUser;
-    public username;
+    public responseAddNewUser;   
     public password;
     public confirmPassword;
     public email;
+    public userName;
     constructor(private nav: NavController, private usuarioService :UsuarioService) {
 
 

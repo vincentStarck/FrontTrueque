@@ -24,8 +24,7 @@ export class HomePage {
 
      this.nativeStorage.getItem('user')
     .then(function (data){
-      console.log("data faceBook'user :")
-      console.log(data);    
+      console.log("data faceBook'user:",data)      
     }, function(error){
       console.log(error);
     });

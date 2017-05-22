@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HomePage } from '../pages/home/home';
+//import {User} from '../model/User'
 
 
 @Component({
@@ -21,9 +22,9 @@ export class MyApp {
       // because we don't want to ask users to log in each time they open the app
       let env = this;
       env.nativeStorage.getItem('user')
-        .then(function (data) {
-          console.log('User was looged previosly')
-
+        .then(function (User) {
+          console.log('User was looged previosly, data user are:',User)
+         
           // user is previously logged and we have his data
           // we will let him access the app
           env.nav.push(HomePage);

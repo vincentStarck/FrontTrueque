@@ -13,6 +13,7 @@ import {AddAccount} from '../pages/account/addAccount';
 
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,6 +38,7 @@ import {AddAccount} from '../pages/account/addAccount';
   providers: [
     StatusBar,
     SplashScreen,  
+    
           
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
