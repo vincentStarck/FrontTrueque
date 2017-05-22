@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { GitHubService } from '../../services/github';
 import { NavController, NavParams } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { Facebook } from '@ionic-native/facebook';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { LoginPage } from '../login/login';
+import { SharedService } from '../../services/sharedService';
+import {User} from '../../model/User';
 
 @Component({
   selector: 'page-home',
@@ -12,24 +14,25 @@ import { LoginPage } from '../login/login';
   providers: [GitHubService,NativeStorage,Facebook]
 
 })
-export class HomePage {
+export class HomePage implements OnInit {
   public foundRepos;
   public username;
+  private user:User;
+  ngOnInit(){
+     //called after the constructor and called  after the first ngOnChanges() 
+     this.user = this.sharedService.getUser();
+     console.log("user recovered from sharedService: ",this.user);
+  }
   constructor(private github: GitHubService,
     private nav: NavController,
     private navParams: NavParams,
     private facebook: Facebook,
-    private nativeStorage: NativeStorage) {
+    private nativeStorage: NativeStorage,
+    private sharedService: SharedService
+    ) {
     this.username = navParams.get('username');
 
-     this.nativeStorage.getItem('user')
-    .then(function (data){
-      console.log("data faceBook'user:",data)      
-    }, function(error){
-      console.log(error);
-    });
-
-  }
+     }
 
   getRepos() {
     this.github.getRepos(this.username).subscribe(

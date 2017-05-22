@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import {DetailsPage} from '../pages/details/details';
 import {LoginPage} from '../pages/login/login';
 import {AddAccount} from '../pages/account/addAccount';
+import {SharedService} from '../services/sharedService';
 
 
 
@@ -38,8 +39,7 @@ import {AddAccount} from '../pages/account/addAccount';
   providers: [
     StatusBar,
     SplashScreen,  
-    
-          
+    SharedService,          
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

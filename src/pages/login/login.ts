@@ -4,7 +4,8 @@ import { Facebook } from '@ionic-native/facebook';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AddAccount } from '../account/addAccount';
-import { User } from '../../model/User'
+import { User } from '../../model/User';
+import { SharedService } from '../../services/sharedService';
 
 @Component({
   selector: 'page-login',
@@ -16,7 +17,10 @@ export class LoginPage {
   public username;
   public password;
 
-  constructor(private nav: NavController, private fb: Facebook, private nativeStorage: NativeStorage) {
+  constructor(private nav: NavController,
+   private fb: Facebook,
+   private nativeStorage: NativeStorage,
+   private sharedService:SharedService) {
 
   }
   goToHome() {
@@ -49,6 +53,8 @@ export class LoginPage {
 
             env.nativeStorage.setItem('user', userLogged)
               .then(function () {
+                //save userLogged using sharedService
+                env.sharedService.setUser(userLogged);
                 env.nav.push(HomePage);
               }, function (error) {
                 console.log('error at save user using nativeStorage: ',error);
